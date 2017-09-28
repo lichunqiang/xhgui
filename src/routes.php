@@ -5,18 +5,18 @@
 $app->error(function (Exception $e) use ($di, $app) {
     $view = $di['view'];
     $view->parserOptions['cache'] = false;
-    $view->parserExtensions = array(
-        new Xhgui_Twig_Extension($app)
-    );
-
+    $view->parserExtensions = [
+        new Xhgui_Twig_Extension($app),
+    ];
+    
     // Remove the controller so we don't render it.
     unset($app->controller);
-
+    
     $app->view($view);
-    $app->render('error/view.twig', array(
+    $app->render('error/view.twig', [
         'message' => $e->getMessage(),
         'stack_trace' => $e->getTraceAsString(),
-    ));
+    ]);
 });
 
 // Profile Runs routes
@@ -108,3 +108,7 @@ $app->get('/waterfall', function () use ($di, $app) {
 $app->get('/waterfall/data', function () use ($di) {
     $di['waterfallController']->query();
 })->name('waterfall.data');
+
+$app->post('/api/receiver', function () use ($di) {
+    $di['receiverController']->index();
+})->name('ap.receiver');

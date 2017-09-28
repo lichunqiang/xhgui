@@ -15,8 +15,10 @@ class Xhgui_ServiceContainer extends Pimple
         return static::$_instance;
     }
 
-    public function __construct()
+    public function __construct(array $values = [])
     {
+        parent::__construct($values);
+        
         $this['config'] = Xhgui_Config::all();
         $this->_slimApp();
         $this->_services();
@@ -123,6 +125,10 @@ class Xhgui_ServiceContainer extends Pimple
 
         $this['waterfallController'] = function ($c) {
             return new Xhgui_Controller_Waterfall($c['app'], $c['profiles']);
+        };
+        
+        $this['receiverController'] = function ($c) {
+            return new Xhgui_Controller_Receiver($c['app']);
         };
     }
 
