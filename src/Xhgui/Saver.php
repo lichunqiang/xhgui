@@ -11,13 +11,15 @@ class Xhgui_Saver
      * Get a saver instance based on configuration data.
      *
      * @param array $config The configuration data.
-     * @return Xhgui_Saver_File|Xhgui_Saver_Mongo
+     * @return Xhgui_Saver_File|Xhgui_Saver_Mongo|Xhgui_Saver_Remote
      */
     public static function factory($config)
     {
         switch ($config['save.handler']) {
             case 'file':
                 return new Xhgui_Saver_File($config['save.handler.filename']);
+            case 'remote':
+                return new Xhgui_Saver_Remote($config['save.handler.remote']);
             case 'mongodb':
             default:
                 $mongo = new MongoClient($config['db.host'], $config['db.options']);
