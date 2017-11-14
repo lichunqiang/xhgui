@@ -109,6 +109,6 @@ $app->get('/waterfall/data', function () use ($di) {
     $di['waterfallController']->query();
 })->name('waterfall.data');
 
-$app->post('/api/receiver', function () use ($di) {
+$app->any('/api/receiver', function () use ($di) {
     $di['receiverController']->index();
 })->name('ap.receiver');
