@@ -35,7 +35,12 @@
                     </span>
                 </th>
                 <th class="right">
-                    <span class="tip" title="IP地址">
+                    <span class="tip" title="SERVER.SERVER_ADDR">
+                        服务器IP
+                    </span>
+                </th>
+                <th class="right">
+                    <span class="tip" title="SERVER.REMOTE_ADDR">
                         IP地址
                     </span>
                 </th>
@@ -74,6 +79,7 @@
             <td class="right">{{ result.get('main()', 'cpu') |as_time }}</td>
             <td class="right">{{ result.get('main()', 'mu') |as_bytes }}</td>
             <td class="right">{{ result.get('main()', 'pmu') |as_bytes }}</td>
+            <td class="right">{{ result.meta.SERVER.SERVER_ADDR }}</td>
             <td class="right"><a href="{{ url('waterfall.list', {'remote_addr': result.meta.SERVER.REMOTE_ADDR, 'request_start': result.meta.SERVER.REQUEST_TIME - 5, 'request_end': result.meta.SERVER.REQUEST_TIME + 15}) }}">{{ result.meta.SERVER.REMOTE_ADDR }}</a>
             </td>
         </tr>

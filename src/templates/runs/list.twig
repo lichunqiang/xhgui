@@ -29,6 +29,18 @@
                 <input type="hidden" name="sort" value="{{ paging.sort }}">
             </div>
         </div>
+        <div class="control-group span4">
+            <label class="control-label" for="url">REMOTE_ADDR</label>
+            <div class="controls">
+                <input type="text" id="url" name="url" value="{{ search.remote_addr }}">
+            </div>
+        </div>
+        <div class="control-group span4">
+            <label class="control-label" for="url">SERVER_ADDR</label>
+            <div class="controls">
+                <input type="text" id="url" name="url" value="{{ search.server_addr }}">
+            </div>
+        </div>
         <div class="form-actions">
             <button type="submit" class="btn btn-primary">搜索</button>
         </div>
