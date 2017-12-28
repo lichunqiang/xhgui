@@ -12,7 +12,8 @@
         "slim/slim": "^2.6.3",
         "slim/views": "^0.1.0",
         "twig/twig": "~1.17",
-        "pimple/pimple": "^1.0.2"
+        "pimple/pimple": "^1.0.2",
+        "workerman/workerman": "^3.5"
     },
     "require-dev": {
         "alcaeus/mongo-php-adapter": "^1.0",

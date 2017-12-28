@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3dd4d9902a436c08fe6e2722c99791f7",
+    "content-hash": "7d3c6d17c71ab48a84fd3983263032ea",
     "packages": [
         {
             "name": "pimple/pimple",
@@ -213,6 +213,52 @@
                 "templating"
             ],
             "time": "2017-03-22T15:40:09+00:00"
+        },
+        {
+            "name": "workerman/workerman",
+            "version": "v3.5.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/walkor/Workerman.git",
+                "reference": "f6e129079e5f5398bffc218024f2dd95678fc564"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/walkor/Workerman/f6e129079e5f5398bffc218024f2dd95678fc564.zip",
+                "reference": "f6e129079e5f5398bffc218024f2dd95678fc564",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "suggest": {
+                "ext-event": "For better performance. "
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Workerman\\": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "walkor",
+                    "email": "walkor@workerman.net",
+                    "homepage": "http://www.workerman.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "An asynchronous event driven PHP framework for easily building fast, scalable network applications.",
+            "homepage": "http://www.workerman.net",
+            "keywords": [
+                "asynchronous",
+                "event-loop"
+            ],
+            "time": "2017-12-06T04:17:52+00:00"
         }
     ],
     "packages-dev": [
@@ -656,7 +702,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-10-17T09:04:17+00:00"
+            "time": "2014-10-17 09:04:17"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
