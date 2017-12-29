@@ -17,7 +17,7 @@ $worker->onMessage = function (\Workerman\Connection\ConnectionInterface $connec
         $config = Xhgui_Config::all();
         $config += ['db.options' => []];
         $saver = Xhgui_Saver::factory($config);
-        $saver->save($data);
+        $saver->save(json_decode($data, true));
     } catch (Exception $e) {
         error_log($e->getMessage());
     }
