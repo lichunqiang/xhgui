@@ -116,6 +116,19 @@ class Xhgui_Controller_Run extends Xhgui_Controller
         ));
     }
 
+    public function delete()
+    {
+        $request = $this->app->request();
+        $id = $request->get('id');
+
+        $delete = $this->profiles->delete($id);
+
+        $this->_template = 'runs/delete.twig';
+        $this->set(array(
+          'id' => $id,
+        ));
+    }
+
     public function url()
     {
         $request = $this->_app->request();

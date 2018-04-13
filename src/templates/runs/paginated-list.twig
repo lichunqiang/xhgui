@@ -44,6 +44,9 @@
                         IP地址
                     </span>
                 </th>
+                <th>
+                    Ops
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -81,6 +84,10 @@
             <td class="right">{{ result.get('main()', 'pmu') |as_bytes }}</td>
             <td class="right">{{ result.meta.SERVER.SERVER_ADDR }}</td>
             <td class="right"><a href="{{ url('waterfall.list', {'remote_addr': result.meta.SERVER.REMOTE_ADDR, 'request_start': result.meta.SERVER.REQUEST_TIME - 5, 'request_end': result.meta.SERVER.REQUEST_TIME + 15}) }}">{{ result.meta.SERVER.REMOTE_ADDR }}</a>
+            <td>
+                <a href="{{ url('run.delete', {'id': result.id|trim }) }}">
+                    <i class="icon-trash"></i>
+                </a>
             </td>
         </tr>
         {% else %}
