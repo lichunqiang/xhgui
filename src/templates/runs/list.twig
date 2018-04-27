@@ -15,27 +15,27 @@
 
     <form action="{{ url('home') }}" method="get" class="row hide search-form form-inline">
         <a href="#" class="search-collapse close" title="Hide search form">&times;</a>
-        <div class="control-group span4">
+        <div class="control-group span3">
             <label class="control-label" for="start_date">时间范围</label>
             <div class="controls">
                 <input type="text" style="width: 80px;" name="date_start" value="{{ search.date_start }}" placeholder="开始时间" onclick="laydate({ istime: true, format: 'YYYY-MM-DD'})">
                 <input type="text" style="width: 80px;" name="date_end" value="{{ search.date_end }}" placeholder="结束时间" onclick="laydate({ istime: true, format: 'YYYY-MM-DD'})">
             </div>
         </div>
-        <div class="control-group span4">
+        <div class="control-group span3">
             <label class="control-label" for="url">请求地址</label>
             <div class="controls">
                 <input type="text" id="url" name="url" value="{{ search.url }}">
                 <input type="hidden" name="sort" value="{{ paging.sort }}">
             </div>
         </div>
-        <div class="control-group span4">
+        <div class="control-group span3">
             <label class="control-label" for="remote_addr">REMOTE_ADDR</label>
             <div class="controls">
                 <input type="text" id="remote_addr" name="remote_addr" value="{{ search.remote_addr }}">
             </div>
         </div>
-        <div class="control-group span4">
+        <div class="control-group span3">
             <label class="control-label" for="server_addr">SERVER_ADDR</label>
             <div class="controls">
                 <input type="text" id="server_addr" name="server_addr" value="{{ search.server_addr }}">
