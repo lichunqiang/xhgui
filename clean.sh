@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-dir=`pwd`
-
+dir=$(dirname $0)
 cmd="load('$dir/mongo.js'); cleanUp()"
 
-mongo 10.9.193.137 --eval "$cmd"
+mongo --eval "$cmd"
