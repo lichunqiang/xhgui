@@ -7,7 +7,7 @@ use Workerman\Worker;
 Worker::$pidFile = __DIR__ . '/cache/workerman.pid';
 Worker::$logFile = __DIR__ . '/cache/workerman.log';
 
-$worker = new Worker('udp://0.0.0.0:8799');
+$worker = new Worker('udp://0.0.0.0:9501');
 
 $worker->name = 'Xhprof_Receiver';
 $worker->count = 4;
