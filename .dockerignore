@@ -1,0 +1,10 @@
+.dockerignore
+.git
+.gitignore
+.gitattributes
+/docker
+*.md
+/external
+/tests
+/*.xml
+/*.yml
