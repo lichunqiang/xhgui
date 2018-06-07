@@ -1,0 +1,30 @@
+### System ################################################
+
+TZ=Asia/Shanghai
+
+### Paths ################################################
+
+DATA_DIR=~/.xhprof-gui/data
+
+WWW_ROOT_LOCAL=./
+WWW_ROOT_CONTAINER=/usr/src/app
+
+### Drivers ################################################
+
+# All volumes driver
+VOLUMES_DRIVER=local
+
+# All Networks driver
+NETWORKS_DRIVER=bridge
+
+#nginx
+NGINX_VERSION=latest
+NGINX_PORT=80
+
+#php
+PHP_VERSION=7.2-fpm
+PHP_FPM_PORT=9000
+
+#mongodb
+MONGO_VERSION=latest
+MONGO_PORT=27017

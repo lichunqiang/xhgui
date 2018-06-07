@@ -1,0 +1,55 @@
+version: "3"
+
+networks:
+    web-network:
+        driver: ${NETWORKS_DRIVER}
+
+services:
+### Nginx ###########################################
+    nginx:
+        image: nginx:${NGINX_VERSION}
+        container_name: xhgui_nginx
+        ports:
+            - "${NGINX_PORT}:80"
+        restart: always
+        networks:
+            - web-network
+        volumes:
+            - ${WWW_ROOT_LOCAL}:${WWW_ROOT_CONTAINER}
+            - ./docker/nginx/conf:/etc/nginx/conf.d
+### PHP-FPM ###########################################
+    php:
+        build:
+            context: ./docker/php
+            dockerfile: Dockerfile
+            args:
+                - PHP_VERSION=${PHP_VERSION}
+                - TZ=${TZ}
+        container_name: xhgui_php
+        restart: always
+        networks:
+            - web-network
+        volumes:
+            - ${WWW_ROOT_LOCAL}:${WWW_ROOT_CONTAINER}
+            - ${DATA_DIR}/cache:${WWW_ROOT_CONTAINER}/cache
+            - ${DATA_DIR}/logs/php:/var/log/php-fpm
+            - ./docker/php/php.ini:/usr/local/etc/php/php.ini
+        ports:
+            - "${PHP_FPM_PORT}:9000"
+        depends_on:
+            - nginx
+            - mongodb
+### mongodb ###########################################
+    mongodb:
+        build:
+            context: ./docker/mongo
+            args:
+                - MONGO_VERSION=${MONGO_VERSION}
+        container_name: xhgui_mongodb
+        restart: always
+        ports:
+            - "${MONGO_PORT}:27017"
+        volumes:
+            - ${DATA_DIR}/mongo:/data/db
+        networks:
+            - web-network

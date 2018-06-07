@@ -3,3 +3,4 @@
 /vendor
 config/config.php
 .idea
+.env
