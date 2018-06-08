@@ -40,6 +40,11 @@ $app->get('/url/view', function () use ($di, $app) {
     $app->controller->url();
 })->name('url.view');
 
+$app->post('/run/import', function () use ($di, $app) {
+    $app->controller = $di['runController'];
+    $app->controller->import();
+})->name('run.import');
+
 $app->get('/run/compare', function () use ($di, $app) {
     $app->controller = $di['runController'];
     $app->controller->compare();
