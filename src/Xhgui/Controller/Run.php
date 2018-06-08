@@ -123,7 +123,7 @@ class Xhgui_Controller_Run extends Xhgui_Controller
             'wall_time' => $timeChart,
             'memory' => $memoryChart,
             'watches' => $watchedFunctions,
-            'date_format' => $this->_app->config('date.format'),
+            'date_format' => $this->app->config('date.format'),
             'title' => '函数监控'
         ));
     }

@@ -23,12 +23,14 @@ $(document).ready(function () {
 
     // Bind events for expandable search forms.
     var searchForm = $('.search-form'),
-        searchExpand = $('.search-expand');
+        searchExpand = $('.search-expand'),
+        deleteButton = $('.delete-all');
 
     searchExpand.on('click', function () {
         searchExpand.fadeOut('fast', function () {
             searchForm.slideDown('fast');
         });
+        deleteButton.hide();
         return false;
     });
 
@@ -36,7 +38,17 @@ $(document).ready(function () {
         searchForm.slideUp('fast', function () {
             searchExpand.show();
         });
+        deleteButton.show();
         return false;
     });
-
+    deleteButton.on('click', function() {
+        if (!confirm('确定删除所有数据？')) {
+            return false;
+        }
+    });
+    $('body').on('click', '.delete-item', function () {
+        if (!confirm('确定删除此条记录？')) {
+            return false;
+        }
+    });
 });
