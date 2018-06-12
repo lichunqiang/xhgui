@@ -62,9 +62,12 @@ composer require laynefyc/xhgui-chinese
 ### 七. Docker
 
 ```bash
+$ cp env-docker .env
 $ docker-compose build
 $ docker-compose up -d
 ```
+
+> 如果发现nginx的80或者9000端口别占用，可以通过修改 .env 文件中的端口号
 
 查看输出日志:
 
