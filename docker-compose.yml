@@ -58,3 +58,17 @@ services:
             - ${DATA_DIR}/mongo:/data/db
         networks:
             - web-network
+### Receiver ###########################################
+    receiver:
+        image: light/swoole:1.0.0
+        container_name: xhgui_receiver
+        ports:
+            - "${UDP_REV_PORT}:9501"
+        restart: always 
+        networks:
+            - web-network
+        volumes:
+            - ${WWW_ROOT_LOCAL}:${WWW_ROOT_CONTAINER}
+            - ${DATA_DIR}/cache:${WWW_ROOT_CONTAINER}/cache
+        working_dir: ${WWW_ROOT_CONTAINER}
+        command: php swoole.php 
