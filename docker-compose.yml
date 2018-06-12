@@ -18,6 +18,8 @@ services:
             - ${WWW_ROOT_LOCAL}:${WWW_ROOT_CONTAINER}
             - ./docker/nginx/conf:/etc/nginx/conf.d
         working_dir: ${WWW_ROOT_CONTAINER}
+        depends_on:
+            - php
 ### PHP-FPM ###########################################
     php:
         build:
@@ -38,8 +40,9 @@ services:
         working_dir: ${WWW_ROOT_CONTAINER}
         ports:
             - "${PHP_FPM_PORT}:9000"
+        environment:
+            - XHGUI_ENV=docker
         depends_on:
-            - nginx
             - mongodb
 ### mongodb ###########################################
     mongodb:

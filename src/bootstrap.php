@@ -11,6 +11,9 @@ if (file_exists(XHGUI_ROOT_DIR . '/vendor/autoload.php')) {
 }
 
 Xhgui_Config::load(XHGUI_ROOT_DIR . '/config/config.default.php');
+if (getenv('XHGUI_ENV') === 'docker') {
+    Xhgui_Config::load(XHGUI_ROOT_DIR . '/config/config.docker.php');
+}
 if (file_exists(XHGUI_ROOT_DIR . '/config/config.php')) {
     Xhgui_Config::load(XHGUI_ROOT_DIR . '/config/config.php');
 }
