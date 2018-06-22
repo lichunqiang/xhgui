@@ -40,4 +40,8 @@ RUN pecl install redis \
     && pecl install mongodb \
     && docker-php-ext-enable redis imagick mongodb apcu
 
+RUN sed -i '2s/\/proc\/self\/fd\/2/\/var\/log\/php-fpm\/php-fpm.error.log/' /usr/local/etc/php-fpm.d/docker.conf \
+    && sed -i 's/;request_slowlog_timeout = 0/request_slowlog_timeout = 3/' /usr/local/etc/php-fpm.d/www.conf \
+    && sed -i 's/;slowlog = log\/\$pool\.log\.slow/slowlog = \/var\/log\/php-fpm\/slow.log/' /usr/local/etc/php-fpm.d/www.conf
+    
 RUN rm -r /var/lib/apt/lists/*
